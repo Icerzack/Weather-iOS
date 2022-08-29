@@ -15,8 +15,8 @@ struct HomeView: View {
         ZStack{
             Image("back")
                 .resizable()
-                .ignoresSafeArea()
                 .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
             VStack {
                 VStack(spacing: -10){
                     viewModel.currentWeatherImage?
@@ -56,5 +56,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

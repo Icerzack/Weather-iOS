@@ -9,5 +9,5 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let back = LinearGradient(gradient: Gradient(colors: [Color("Tab Bar Border").opacity(0.5), Color("Probability Text")]), startPoint: .top, endPoint: .bottom)
+    static let back = LinearGradient(gradient: Gradient(colors: [Color("Color 1").opacity(0.8), Color("Color 2")]), startPoint: .top, endPoint: .bottom)
 }
