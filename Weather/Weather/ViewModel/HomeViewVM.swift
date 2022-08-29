@@ -25,20 +25,7 @@ extension HomeView {
                 for day in forecast {
                     DispatchQueue.main.async { [self] in
                         date = convertFromDate(date: day.date)
-                        switch checkCode(code: String(day.weatherCode)){
-                        case .clear:
-                            image = Image("clear_day")
-                        case .cloudy:
-                            image = Image("cloudy")
-                        case .fog:
-                            image = Image("fog")
-                        case .rain:
-                            image = Image("rain")
-                        case .snow:
-                            image = Image("snow")
-                        case .thunder:
-                            image = Image("tstorm")
-                        }
+                        image = checkCode(code: String(day.weatherCode))
                         temperature = day.temperature
                         if day == forecast.first! {
                             currentTemperature = temperature
@@ -69,22 +56,22 @@ extension HomeView {
             return "\(day).\(month).\(year)"
         }
         
-        private func checkCode(code: String) -> WeatherCodes{
+        private func checkCode(code: String) -> Image{
             switch code {
             case "1000", "1100":
-                return .clear
+                return Image("clear_day")
             case "1101", "1102", "1001":
-                return .cloudy
+                return Image("cloudy")
             case "2000", "2100":
-                return .fog
+                return Image("fog")
             case "4000", "4001", "4200", "4201", "6000", "6001", "6200", "6201":
-                return .rain
+                return Image("rain")
             case "5000", "5001", "5100", "5101", "7000", "7101", "7102":
-                return .snow
+                return Image("snow")
             case "8000":
-                return .thunder
+                return Image("tstorm")
             default:
-                return .clear
+                return Image("clear_day")
             }
         }
         
